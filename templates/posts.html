@@ -5,9 +5,14 @@ block body %}
   {%if articles|length > 0%}
   {% for elem in articles %} 
   <div class="alert alert-info">
+    <h3>{{elem.user}}</h3>
     <h2>{{elem.title}}</h2>
     <p>{{elem.intro}}</p>
-    <p><b>Date: {{elem.date.date()}}</b></p>
+    <div class="end-content">
+      <img src="http://www.pngall.com/wp-content/uploads/5/Like-Button-PNG-Pic.png" onclick="">
+      <input type="button" action="/app.py">
+      <p><b>Date: {{elem.date.date()}}</b></p>
+    </div>
     <a href="/posts/{{ elem.id }}"class="btn btn-warning">Read more</a>
   </div>
   {% endfor %}
