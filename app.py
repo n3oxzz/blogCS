@@ -9,11 +9,13 @@ db = SQLAlchemy(app)
 #link app and db to sqlite and sqlAlchemy
 
 class Article(db.Model):
-    #article object definition. still needs to include poster attribute, comments, likes?
+    #Article class definition creates space in the database
     id = db.Column(db.Integer, primary_key=True)
+    user = db.Column(db.String(20),nullable=False)
     title = db.Column(db.String(100), nullable=False)
     intro = db.Column(db.String(300), nullable=False)
     text = db.Column(db.Text, nullable=False)
+    likes = db.Column(db.Integer)
     date = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
