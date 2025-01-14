@@ -3,11 +3,13 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
+#create an instance of flask, __name__ is the application's module or package.
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///cs_project.db"
 db = SQLAlchemy(app)
-
+#link app and db to sqlite and sqlAlchemy
 
 class Article(db.Model):
+    #article object definition. still needs to include poster attribute, comments, likes?
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     intro = db.Column(db.String(300), nullable=False)
@@ -22,17 +24,20 @@ class Article(db.Model):
 @app.route('/home')
 def index():
     return render_template("index.html")
+    #display the posts page
 
 
 @app.route('/about')
 def about():
     return render_template("about.html")
+    #display the about page
 
 
 @app.route('/posts')
 def posts():
     articles = Article.query.order_by(Article.date.desc()).all()
     return render_template("posts.html", articles=articles)
+    #query the posts in chronological order, tell flask to display the posts page
 
 
 @app.route('/posts/<int:id>')
@@ -44,14 +49,17 @@ def post_detail(id):
 @app.route('/posts/<int:id>/delete')
 def post_delete(id):
     article = Article.query.get_or_404(id)
+    #query for article, failure results in 404
+    
 
     try:
         db.session.delete(article)
         db.session.commit()
         return redirect('/posts')
+        #delete the article, commit, send the user to the posts page
     except:
         return "An error occurred while handling the article deletion."
-
+    #because of the way this is set up with no user authentication, I'm pretty sure anyone can delete articles just by navigating to '/posts/<int:id>/delete'
 
 @app.route('/create-article', methods=["POST", "GET"])
 def create_article():
@@ -70,6 +78,7 @@ def create_article():
             return "An error occurred while handling the article creation."
     else:
         return render_template("create-article.html")
+        #tell flask to display the create article page
 
 
 @app.route('/posts/<int:id>/edit', methods=["POST", "GET"])
@@ -86,6 +95,7 @@ def edit_article(id):
             return "An error occurred while handling the article editing."
     else:
         return render_template("edit_article.html", article=article)
+        #same thing as delete for editting too
 
 
 if __name__ == "__main__":
