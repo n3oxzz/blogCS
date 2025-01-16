@@ -9,9 +9,9 @@ db = SQLAlchemy(app)
 #link app and db to sqlite and sqlAlchemy
 
 class Article(db.Model):
-    #Article class definition creates space in the database
+    #Article class definition creates space in the database for articles
     id = db.Column(db.Integer, primary_key=True)
-    user = db.Column(db.String(20),nullable=False)
+    poster = db.Column(db.String(20),nullable=False)
     title = db.Column(db.String(100), nullable=False)
     intro = db.Column(db.String(300), nullable=False)
     text = db.Column(db.Text, nullable=False)
@@ -21,6 +21,13 @@ class Article(db.Model):
     def __repr__(self):
         return "<Article %r>" % self.id
 
+class User(db.Model):
+    #User class definition creates space in the database for user data
+    uid = db.Column(db.Integer, primary_key=True)
+    usrname = db.Column(db.String(20), nullable=False)
+    bio = db.Column(db.String(100), nullable=True)
+    
+    
 
 @app.route('/')
 @app.route('/home')
