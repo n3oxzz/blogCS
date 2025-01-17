@@ -8,7 +8,7 @@ block body %}
     <h2>{{elem.title}}</h2>
     <p>{{elem.intro}}</p>
     <p><b>Date: {{elem.date.date()}}</b></p>
-    <a href="/posts/{{ elem.id }}"class="btn btn-warning">Read more</a>
+    <a href="/posts/{{ elem._id }}"class="btn btn-warning">Read more</a>
   </div>
   {% endfor %}
   {% else %}

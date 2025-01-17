@@ -6,8 +6,8 @@
   <div class="alert alert-info">
     <p>{{article.text}}</p>
     <p><b>Date: {{article.date.date()}}</b></p>
-    <a href="/posts/{{ article.id }}/delete" class="btn btn-danger">Delete Article</a>
-    <a href="/posts/{{ article.id }}/edit" class="btn btn-success">Edit Article</a>
+    <a href="/posts/{{ article._id }}/delete" class="btn btn-danger">Delete Article</a>
+    <a href="/posts/{{ article._id }}/edit" class="btn btn-success">Edit Article</a>
   </div>
 </div>
 {% endblock %}
