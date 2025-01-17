@@ -41,7 +41,11 @@ def about():
     return render_template("about.html")
     #display the about page
 
-
+@app.route('/create_account', methods = ["CREATE"])
+def create():
+    if request.method=="CREATE":
+        return render_template('create_account.html',)
+    
 @app.route('/posts')
 def posts():
     articles = Article.query.order_by(Article.date.desc()).all()
