@@ -14,8 +14,9 @@ with open('uri.txt', "r") as file:
 
 client = MongoClient(uri, server_api=ServerApi('1'))
 
-db = client["blog_cs"]
-articles_collection = db["articles"]
+articles_collection = (client["blog_cs"])["Articles"]
+users_collection = (client["blogDB"])["Users"]
+
 
 try:
     client.admin.command('ping')
@@ -31,6 +32,7 @@ def index():
 @app.route('/about')
 def about():
     return render_template("about.html")
+
 @app.route('/create_account', methods = ["CREATE"])
 def create():
     if request.method=="CREATE":
@@ -111,9 +113,9 @@ def edit_article(id):
             return "Article not found", 404
 
         if request.method == "POST":
-            title = request.form["title"].strip()
-            intro = request.form["intro"].strip()
-            text = request.form["text"].strip()
+            title = Flask.request.form["title"].strip()
+            intro = Flask.request.form["intro"].strip()
+            text = Flask.request.form["text"].strip()
             
             # Basic validation
             if not title or not intro or not text:
