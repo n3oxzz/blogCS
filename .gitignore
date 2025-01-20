@@ -1,2 +1,5 @@
 .vercel
-uri.txt
+.env
+__pycache__
+.vscode
+venv/

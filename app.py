@@ -4,12 +4,16 @@ from datetime import datetime, UTC
 from bson.objectid import ObjectId
 from pymongo.server_api import ServerApi
 import certifi
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
 
 # MongoDB Configuration
-with open('uri.txt', "r") as file:
-    uri = file.read().strip()
+
+uri = os.getenv('MONGO_DB_URI')
 
 client = MongoClient(uri, server_api=ServerApi('1'), tlsCAFile=certifi.where())
 
