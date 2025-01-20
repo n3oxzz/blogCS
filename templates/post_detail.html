@@ -6,7 +6,7 @@
 
   <div class="alert alert-info">
     <p>{{ article.text }}</p>
-    <p><b>Date: {{ article.date.date() }}</b></p>
+    
     
     <!-- Форма для удаления статьи -->
     {{if session['username'] == article.author }} 
@@ -16,6 +16,7 @@
     
     <a href="/posts/{{ article._id }}/edit" class="btn btn-success">Edit Article</a>
     {{endif}}
+    <p><b>Date: {{ article.date.date() }}</b></p>
   </div>
 </div>
 {% endblock %}
