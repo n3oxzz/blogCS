@@ -1,12 +1,15 @@
 from flask import Flask, render_template, url_for, request, redirect
 from pymongo import MongoClient
-from datetime import datetime
+from datetime import datetime, UTC
 from bson.objectid import ObjectId
 from flask_pymongo import PyMongo
 from pymongo.server_api import ServerApi
+import certifi
 import os
 
 app = Flask(__name__)
+
+# app.config["SECRET_KEY"] = '0a7d8816ccfd41d320f505f8be84a2a35e7c5183'
 
 # MongoDB Configuration
 with open('uri.txt', "r") as file:
@@ -14,11 +17,11 @@ with open('uri.txt', "r") as file:
 
 client = MongoClient(uri, server_api=ServerApi('1'))
 
-articles_collection = (client["blog_cs"])["Articles"]
-users_collection = (client["blogDB"])["Users"]
-
+db = client["blog_cs"]
+articles_collection = db["articles"]
 
 try:
+    print("attempting to ping...")
     client.admin.command('ping')
     print("Pinged your deployment. You successfully connected to MongoDB!")
 except Exception as e:
@@ -90,7 +93,7 @@ def create_article():
             "title": title,
             "intro": intro,
             "text": text,
-            "date": datetime.utcnow()
+            "date": datetime.now(UTC)
         }
 
         try:
@@ -143,4 +146,4 @@ def edit_article(id):
         return "An error occurred while editing the article.", 500
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run()
