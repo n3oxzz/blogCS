@@ -2,14 +2,10 @@ from flask import Flask, render_template, request, redirect
 from pymongo import MongoClient
 from datetime import datetime, UTC
 from bson.objectid import ObjectId
-from flask_pymongo import PyMongo
 from pymongo.server_api import ServerApi
 import certifi
-import os
 
 app = Flask(__name__)
-
-# app.config["SECRET_KEY"] = '0a7d8816ccfd41d320f505f8be84a2a35e7c5183'
 
 # MongoDB Configuration
 with open('uri.txt', "r") as file:
