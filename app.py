@@ -7,6 +7,7 @@ import certifi
 from dotenv import load_dotenv
 import os
 from flask_bcrypt import Bcrypt
+from bson import ObjectId
 
 load_dotenv()
 
@@ -181,6 +182,8 @@ def edit_article(id):
 
         if not article:
             return "Article not found", 404
+        if not article or not article.get("author_id") or not session.get("user_id"):
+            return "You have no permission to edit this post.", 403
         if article["author_id"] != session["user_id"]:
             return "You have no permission to edit this post.", 403
         
