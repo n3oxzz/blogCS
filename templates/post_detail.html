@@ -9,11 +9,13 @@
     <p><b>Date: {{ article.date.date() }}</b></p>
     
     <!-- Форма для удаления статьи -->
+    {{if session['username'] == article.author }} 
     <form action="/posts/{{ article._id }}/delete" method="POST" style="display:inline;">
       <button type="submit" class="btn btn-danger">Delete Article</button>
     </form>
     
     <a href="/posts/{{ article._id }}/edit" class="btn btn-success">Edit Article</a>
+    {{endif}}
   </div>
 </div>
 {% endblock %}
