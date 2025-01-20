@@ -17,8 +17,8 @@ uri = os.getenv('MONGO_DB_URI')
 
 client = MongoClient(uri, server_api=ServerApi('1'), tlsCAFile=certifi.where())
 
-db = client["blog_cs"]
-articles_collection = db["articles"]
+db = client["blogDB"]
+articles_collection = db["Articles"]
 
 try:
     print("attempting to ping...")
