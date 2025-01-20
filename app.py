@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 from pymongo import MongoClient
 from datetime import datetime, UTC
 from bson.objectid import ObjectId
@@ -6,19 +6,24 @@ from pymongo.server_api import ServerApi
 import certifi
 from dotenv import load_dotenv
 import os
+from flask_bcrypt import Bcrypt
 
 load_dotenv()
 
 app = Flask(__name__)
 
-# MongoDB Configuration
+
+bcrypt = Bcrypt(app)
+
+app.secret_key = os.getenv("SECRET_KEY")
+
 
 uri = os.getenv('MONGO_DB_URI')
-
 client = MongoClient(uri, server_api=ServerApi('1'), tlsCAFile=certifi.where())
-
 db = client["blogDB"]
 articles_collection = db["Articles"]
+users_collection = db["Users"]
+
 
 try:
     print("attempting to ping...")
@@ -27,20 +32,68 @@ try:
 except Exception as e:
     print(e)
 
+
+@app.route('/register', methods = ["POST", "GET"])
+def register():
+    if request.method == "POST":
+        username = request.form["username"].strip()
+        password = request.form["password"].strip()
+    
+        if not username or not password:
+            return "Username and password are required", 400
+
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+
+        try:
+            users_collection.insert_one({"username": username, "password": hashed_password})
+            return redirect('/login')
+        except Exception as e:
+            print(f"Error registering user: {e}")
+            return "An error occurred during registration.", 500
+    else:
+        return render_template('register.html')
+    
+
+@app.route('/login', methods=["POST", "GET"])
+def login():
+    if request.method == "POST":
+        username = request.form["username"].strip()
+        password = request.form["password"].strip()
+
+        user = users_collection.find_one({"username": username})
+
+        if user and bcrypt.check_password_hash(user["password"], password):
+            session["user_id"] = str(user["_id"])
+            session["username"] = user["username"]
+            return redirect('/')
+        return "Invalid username or password", 401
+    else:
+        return render_template("login.html")
+
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/')
+
+
 @app.route('/')
 @app.route('/home')
 def index():
     return render_template("index.html")
 
+
 @app.route('/about')
 def about():
     return render_template("about.html")
+
 
 @app.route('/create_account', methods = ["CREATE"])
 def create():
     if request.method=="CREATE":
         return render_template('create_account.html',)
     
+
 @app.route('/posts')
 def posts():
     try:
@@ -49,6 +102,7 @@ def posts():
     except Exception as e:
         print(f"Error fetching posts: {e}")
         return "An error occurred while fetching articles.", 500
+
 
 @app.route('/posts/<string:id>')
 def post_detail(id):
@@ -64,13 +118,21 @@ def post_detail(id):
         print(f"Error fetching post details: {e}")
         return "An error occurred while fetching the article.", 500
 
+
 @app.route('/posts/<string:id>/delete', methods=['POST'])
 def post_delete(id):
+    if "user_id" not in session:
+        return redirect('/login')
     try:
-        if not ObjectId.is_valid(id):
-            return "Invalid article ID", 404
+        article = articles_collection.find_one({"_id": ObjectId(id)})
+
+        if not article:
+            return "Article not found", 404
+        if article["author_id"] != session["user_id"]:
+            return "You have no permission to edit this post.", 403
             
         result = articles_collection.delete_one({"_id": ObjectId(id)})
+
         if result.deleted_count:
             return redirect('/posts')
         return "Article not found", 404
@@ -78,14 +140,16 @@ def post_delete(id):
         print(f"Error deleting post: {e}")
         return "An error occurred while deleting the article.", 500
 
+
 @app.route('/create-article', methods=["POST", "GET"])
 def create_article():
+    if "user_id" not in session:
+        return redirect("/login")
     if request.method == "POST":
         title = request.form["title"].strip()
         intro = request.form["intro"].strip()
         text = request.form["text"].strip()
         
-        # Basic validation
         if not title or not intro or not text:
             return "All fields must be filled out", 400
             
@@ -93,7 +157,8 @@ def create_article():
             "title": title,
             "intro": intro,
             "text": text,
-            "date": datetime.now(UTC)
+            "date": datetime.now(UTC),
+            "author_id": session["user_id"]
         }
 
         try:
@@ -105,15 +170,20 @@ def create_article():
     else:
         return render_template("create-article.html")
 
+
 @app.route('/posts/<string:id>/edit', methods=["POST", "GET"])
 def edit_article(id):
-    try:
-        if not ObjectId.is_valid(id):
-            return "Invalid article ID", 404
-            
+    if "user_id" not in session:
+        return redirect('/login')
+    
+    try:    
         article = articles_collection.find_one({"_id": ObjectId(id)})
+
         if not article:
             return "Article not found", 404
+        if article["author_id"] != session["user_id"]:
+            return "You have no permission to edit this post.", 403
+        
 
         if request.method == "POST":
             title = Flask.request.form["title"].strip()

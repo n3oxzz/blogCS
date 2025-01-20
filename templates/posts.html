@@ -2,16 +2,14 @@
 block body %}
 <div class="container">
   <h1>Articles</h1>
-  {%if articles|length > 0%}
-  {% for elem in articles %} 
+  {%if articles|length > 0%} {% for elem in articles %}
   <div class="alert alert-info">
     <h2>{{elem.title}}</h2>
     <p>{{elem.intro}}</p>
     <p><b>Date: {{elem.date.date()}}</b></p>
-    <a href="/posts/{{ elem._id }}"class="btn btn-warning">Read more</a>
+    <a href="/posts/{{ elem._id }}" class="btn btn-warning">Read more</a>
   </div>
-  {% endfor %}
-  {% else %}
+  {% endfor %} {% else %}
   <p>No articles yet</p>
   {%endif%}
 </div>
