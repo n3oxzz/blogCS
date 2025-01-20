@@ -182,11 +182,10 @@ def edit_article(id):
 
         if not article:
             return "Article not found", 404
-        if not article or not article.get("author_id") or not session.get("user_id"):
-            return "You have no permission to edit this post.", 403
+        
+        # Проверка, что автор статьи совпадает с текущим пользователем
         if article["author_id"] != session["user_id"]:
             return "You have no permission to edit this post.", 403
-        
 
         if request.method == "POST":
             title = request.form["title"].strip()
@@ -214,9 +213,11 @@ def edit_article(id):
             return "No changes made to the article.", 400
         else:
             return render_template("edit_article.html", article=article)
+    
     except Exception as e:
         print(f"Error editing article: {e}")
-        return "An error occurred while editing the article.", 500
+        return f"An error occurred while editing the article: {e}", 500
+
 
 if __name__ == "__main__":
     app.run()
