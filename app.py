@@ -186,9 +186,9 @@ def edit_article(id):
         
 
         if request.method == "POST":
-            title = Flask.request.form["title"].strip()
-            intro = Flask.request.form["intro"].strip()
-            text = Flask.request.form["text"].strip()
+            title = request.form["title"].strip()
+            intro = request.form["intro"].strip()
+            text = request.form["text"].strip()
             
             # Basic validation
             if not title or not intro or not text:
