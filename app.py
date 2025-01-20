@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, request, redirect
 from pymongo import MongoClient
 from datetime import datetime, UTC
 from bson.objectid import ObjectId
@@ -15,7 +15,7 @@ app = Flask(__name__)
 with open('uri.txt', "r") as file:
     uri = file.read().strip()
 
-client = MongoClient(uri, server_api=ServerApi('1'))
+client = MongoClient(uri, server_api=ServerApi('1'), tlsCAFile=certifi.where())
 
 db = client["blog_cs"]
 articles_collection = db["articles"]
