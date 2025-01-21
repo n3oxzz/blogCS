@@ -7,15 +7,13 @@
   <div class="alert alert-info">
     <p>{{ article.text }}</p>
     
-    
-    <!-- Форма для удаления статьи -->
-    {{if session['username'] == article.author }} 
+    {% if session.get('user_id') == article.author_id %} 
     <form action="/posts/{{ article._id }}/delete" method="POST" style="display:inline;">
       <button type="submit" class="btn btn-danger">Delete Article</button>
     </form>
     
     <a href="/posts/{{ article._id }}/edit" class="btn btn-success">Edit Article</a>
-    {{endif}}
+    {% endif %}
     <p><b>Date: {{ article.date.date() }}</b></p>
   </div>
 </div>
