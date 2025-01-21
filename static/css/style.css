@@ -5,8 +5,8 @@
     --white-color: #ffffff;
 }
 body {
-    background-color: var(--light-grey);  /* светлый фон */
-    color: var(--black-color);  /* черный текст */
+    background-color: var(--light-grey); 
+    color: var(--black-color);  
     font-family: 'Arial', sans-serif;
 }
 /* Хедер */
@@ -20,30 +20,9 @@ header .fs-4 {
     font-weight: bold;
 }
 
-/* Иконки и ссылки */
-.icon-link {
-    color: var(--main-purple);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.icon-link:hover {
-    color: var(--black-color); /* При наведении цвет меняется на черный */
-}
 
 
-/* Цвет для фоновых элементов с фиолетовым */
-.text-bg-purple {
-    background-color: var(--main-purple);
-}
-
-/* Градиент для карточек */
-.feature-icon {
-    background: linear-gradient(45deg, #6706e9, #000000);
-    padding: 1rem;
-    border-radius: 50%;
-}
-/* Стили футера */
+/* FOOTER */
 footer {
     background-color: var(--light-grey);
     color: var(--white-color);
