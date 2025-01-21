@@ -8,7 +8,7 @@
     <p>{{ article.text }}</p>
     
     {% if session.get('user_id') == article.author_id %} 
-    <form action="/posts/{{ article._id }}/delete" method="POST" style="display:inline;">
+    <form action="/home/{{ article._id }}/delete" method="POST" style="display:inline;">
       <button type="submit" class="btn btn-danger">Delete Article</button>
     </form>
     
