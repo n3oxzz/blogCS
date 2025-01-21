@@ -1,16 +1,43 @@
-{% extends 'base.html' %} {% block title %} Articles page {% endblock %} {%
-block body %}
+{% extends 'base.html' %}
+
+{% block title %}
+Articles page
+{% endblock %}
+
+{% block body %}
 <div class="container">
-  <h1>Articles</h1>
-  {%if articles|length > 0%} {% for elem in articles %}
-  <div class="alert alert-info">
-    <h2>{{elem.title}}</h2>
-    <p>{{elem.intro}}</p>
-    <p><b>Date: {{elem.date.date()}}</b></p>
-    <a href="/posts/{{ elem._id }}" class="btn btn-warning">Read more</a>
+  <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+
+    {% if articles|length > 0 %}
+      {% for elem in articles %}
+        <!-- Card for each article -->
+        <div class="feature col">
+          <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-purple bg-gradient fs-2 mb-3">
+            <svg class="bi" width="1em" height="1em">
+              <use xlink:href="#collection"></use>
+            </svg>
+          </div>
+          <h3 class="fs-2 text-body-emphasis">{{ elem.title }}</h3>
+          <p>{{ elem.intro }}</p>
+          <p><b>Date: {{ elem.date.date() }}</b></p>
+          <a href="/posts/{{ elem._id }}" class="icon-link text-main-purple">
+            Read more
+            <svg class="bi">
+              <use xlink:href="#chevron-right"></use>
+            </svg>
+          </a>
+        </div>
+      {% endfor %}
+    {% else %}
+      <!-- Message when no articles -->
+      <div class="col">
+        <div class="alert alert-warning text-center">
+          <h3>No articles yet</h3>
+          <p>Check back later for updates!</p>
+        </div>
+      </div>
+    {% endif %}
+
   </div>
-  {% endfor %} {% else %}
-  <p>No articles yet</p>
-  {%endif%}
 </div>
 {% endblock %}

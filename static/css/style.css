@@ -1,9 +1,74 @@
-body{
-    background-color: rgb(61, 61, 255);
-} 
-.alert-info{
-
+:root {
+    --main-purple: #6706e9;
+    --light-grey: #f4f4f9;
+    --black-color: #000000;
+    --white-color: #ffffff;
 }
-.btn{
-    
+body {
+    background-color: var(--light-grey);  /* светлый фон */
+    color: var(--black-color);  /* черный текст */
+    font-family: 'Arial', sans-serif;
+}
+/* Хедер */
+header {
+    background: linear-gradient(45deg, #6706e9, #000000);
+    color: var(--white-color);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .fs-4 {
+    font-weight: bold;
+}
+
+/* Иконки и ссылки */
+.icon-link {
+    color: var(--main-purple);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.icon-link:hover {
+    color: var(--black-color); /* При наведении цвет меняется на черный */
+}
+
+
+/* Цвет для фоновых элементов с фиолетовым */
+.text-bg-purple {
+    background-color: var(--main-purple);
+}
+
+/* Градиент для карточек */
+.feature-icon {
+    background: linear-gradient(45deg, #6706e9, #000000);
+    padding: 1rem;
+    border-radius: 50%;
+}
+/* Стили футера */
+footer {
+    background-color: var(--light-grey);
+    color: var(--white-color);
+    padding: 1.5rem 0;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* cards */
+.feature {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+}
+
+/* Подписи и заголовки */
+.fs-2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.text-body-emphasis {
+    color: var(--black-color);
 }
