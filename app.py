@@ -113,7 +113,7 @@ def post_detail(id):
             
         article = articles_collection.find_one({"_id": ObjectId(id)})
         if article:
-            return render_template("post_detail.html", article=article)
+            return render_template("post_detail.html", article=article, session=session)
         return "Article not found", 404
     except Exception as e:
         print(f"Error fetching post details: {e}")
@@ -160,7 +160,7 @@ def create_article():
             "title": title,
             "intro": intro,
             "text": text,
-            "date": datetime.now(UTC),
+            "date": datetime.utcnow(),
             "author_id": session["user_id"],
             "author_username": author_username
         }
