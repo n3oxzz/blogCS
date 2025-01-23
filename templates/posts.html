@@ -21,7 +21,7 @@ Articles Page
           <p>{{ elem.intro }}</p>
           <p><b>Date: {{ elem.date.date() }}</b></p>
           <p><b>Author: {{ elem.author_username }}</b></p>
-          <a href="/posts/{{ elem._id }}" class="icon-link text-main-purple">
+          <a id="" href="/posts/{{ elem._id }}" class="icon-link text-main-purple">
             Read more
             <svg class="bi">
               <use xlink:href="#chevron-right"></use>
@@ -34,7 +34,7 @@ Articles Page
       <div class="col">
         <div class="alert alert-warning text-center">
           <h3>No articles yet</h3>
-          <p>Check back later for updates!</p>
+          <p>Check back later for updates or be the first to post!</p>
         </div>
       </div>
     {% endif %}

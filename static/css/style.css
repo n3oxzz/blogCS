@@ -35,6 +35,7 @@ footer {
 .nav-item:hover{
     color: blue;
     background-color: lightgray;
+    border-radius: 10%; 
 }
 .nav-item:not(hover){
     color:white;
