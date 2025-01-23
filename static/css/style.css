@@ -27,16 +27,16 @@ footer {
     padding: 1.5rem 0;
     box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
 }
-.nav-link{
+.nav-item{
     color: white;
     text-decoration: none;
 
 }
-.nav-link:hover{
+.nav-item:hover{
     color: blue;
     background-color: lightgray;
 }
-.nav-link:not(hover){
+.nav-item:not(hover){
     color:white;
 }
 
