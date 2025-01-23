@@ -40,7 +40,7 @@ footer {
     color:white;
 }
 .footer-link{
-    color: black;
+    color: var(--black-color);
     margin: auto;
     text-align:center;
     text-decoration: none;
