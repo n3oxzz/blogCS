@@ -39,7 +39,12 @@ footer {
 .nav-link:not(hover){
     color:white;
 }
-
+.footer-link{
+    color: black;
+    margin: auto;
+    text-align:center;
+    text-decoration: none;
+}
 
 /* cards */
 .feature {
