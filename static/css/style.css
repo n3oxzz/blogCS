@@ -59,3 +59,27 @@ footer {
 .text-body-emphasis {
     color: var(--black-color);
 }
+
+/*login page*/
+.login-container {
+    margin: auto;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid var(--light-grey);
+    border-radius: 5px;
+    text-align: center;
+    color: var(--black-color);
+    background-color: var(--light-grey);
+}
+/*register page*/
+.register-container {
+    margin: auto;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid var(--light-grey);
+    border-radius: 5px;
+    text-align: center;
+    color: var(--black-color);
+    background-color: var(--light-grey);
+    /* background: linear-gradient(45deg, var(--black-color), var(--main-purple))*/
+}

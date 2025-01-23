@@ -5,6 +5,7 @@ Login page
 {% endblock %}
 
 {% block body %}
+<div class="login-container">
 <h1>Login</h1>
 <form method="POST" action="/login">
     <label for="username">Username:</label>
@@ -13,7 +14,9 @@ Login page
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required>
     <br>
+    <br>
     <button type="submit">Login</button>
 </form>
 <a href="/register">Don't have an account? Register</a>
+</div>
 {% endblock %}

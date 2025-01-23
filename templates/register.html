@@ -5,6 +5,7 @@ Register
 {% endblock %}
 
 {% block body %}
+<div class="register-container">
 <h1>Register</h1>
     <form method="POST" action="/register">
         <label for="username">Username:</label>
@@ -13,7 +14,9 @@ Register
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
         <br>
+        <br>
         <button type="submit">Register</button>
     </form>
     <a href="/login">Already have an account? Log in</a>
+</div>
 {% endblock %}
