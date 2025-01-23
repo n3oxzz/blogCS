@@ -33,7 +33,7 @@ footer {
 
 }
 .nav-link:hover{
-    color: var(--main-purple);
+    color: var(#6706e9);
     background-color: lightgray;
 }
 .nav-link:not(hover){
