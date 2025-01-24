@@ -48,7 +48,7 @@ footer {
 
 /* cards */
 .feature {
-    background-color:var(--black-color);
+    background-color:var(--light-grey);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
