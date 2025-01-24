@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, session
 from pymongo import MongoClient
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 from bson.objectid import ObjectId
 from pymongo.server_api import ServerApi
 import certifi
@@ -160,7 +160,7 @@ def create_article():
             "title": title,
             "intro": intro,
             "text": text,
-            "date": datetime.utcnow(),
+            "date": datetime.now(timezone.utc),
             "author_id": session["user_id"],
             "author_username": author_username
         }
@@ -203,7 +203,7 @@ def edit_article(id):
                 "title": title,
                 "intro": intro,
                 "text": text,
-                "date": datetime.utcnow()
+                "date": datetime.now(timezone.utc)
             }
             
             result = articles_collection.update_one(

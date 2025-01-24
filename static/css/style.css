@@ -12,7 +12,7 @@ body {
 
 /* HEADER */
 header {
-    background: linear-gradient(45deg, #6706e9, #000000);
+    background: linear-gradient(25deg, #6706e9, #000000);
     color: var(--white-color);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -21,50 +21,82 @@ header {
 
 
 /* FOOTER */
+
 footer {
     background-color: var(--light-grey);
     color: var(--white-color);
     padding: 1.5rem 0;
     box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
-.nav-link{
+
+.footer-link a {
+    color: var(--main-purple); 
+    text-decoration: none;
+}
+
+.footer-link a:hover {
+    color: #5a05c6; 
+}
+
+/* Текст в футере */
+.footer-text {
+    color: var(--black-color); 
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+/* Navigation */
+.nav-link {
     color: white;
     text-decoration: none;
-
 }
-.nav-link:hover{
-    color: var(#6706e9);
+
+.nav-link:hover {
+    color: var(--main-purple); 
     background-color: lightgray;
 }
-.nav-link:not(hover){
-    color:white;
-}
-.footer-link{
-    color: var(--black-color);
-    margin: auto;
-    text-align:center;
-    text-decoration: none;
+
+.nav-link:not(:hover) {
+    color: white; 
 }
 
 /* cards */
 .feature {
-    background-color:var(--light-grey);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-.feature:hover {
-    transform: translateY(-10px);
+    background-color: #e6e6e6; 
+    color: var(--black-color); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* cards texts */
+.feature:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); 
+}
+
 .fs-2 {
     font-size: 1.5rem;
     font-weight: bold;
+    color: var(--black-color); 
 }
 
 .text-body-emphasis {
-    color: var(--black-color);
+    color: #333333;
 }
+
+.icon-link.text-main-purple {
+    color: var(--main-purple); 
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.icon-link.text-main-purple:hover {
+    color: #5a05c6; 
+    text-decoration: none;
+}
+
 
 /*login page*/
 .login-container {
@@ -88,4 +120,27 @@ footer {
     color: var(--black-color);
     background-color: var(--light-grey);
     /* background: linear-gradient(45deg, var(--black-color), var(--main-purple))*/
+}
+
+/* About Section */
+.about-section {
+    background: linear-gradient(135deg, #f1f1f1, #e0e0e0);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h1 {
+    font-family: 'Arial', sans-serif;
+    color: var(--main-purple);
+}
+
+.about-section h2 {
+    color: var(--main-purple);
+    font-weight: 500;
+}
+
+.about-section p {
+    color: var(--black-color);
+    font-size: 1.1rem;
 }
