@@ -8,14 +8,14 @@
         <div class="text-center">
             <h1>Welcome, {{ session['username'] }}!</h1>
             <p>You're logged in. Feel free to explore the blog or create new posts.</p>
-            <a href="/logout" class="btn btn-danger">Logout</a>
+            <a href="/logout" class="logout-btn">Logout</a>
         </div>
     {% else %}
         <div class="text-center">
             <h1>Welcome to CS Project!</h1>
             <p>Please log in or register to access more features.</p>
-            <a href="/login" class="btn btn-primary me-2">Login</a>
-            <a href="/register" class="btn btn-success">Register</a>
+            <a href="/login" class="login-link-button">Login</a>
+            <a href="/register" class="register-link-button">Register</a>
         </div>
     {% endif %}
 </div>

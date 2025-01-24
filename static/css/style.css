@@ -6,6 +6,7 @@
     --black-color: #000000;
     --white-color: #ffffff;
     --main-green: #06e670;
+    --dark-green: #049c4e;
 }
 body {
     background-color: var(--light-grey); 
@@ -59,7 +60,7 @@ footer {
     text-decoration: none !important;
 }
 .reg-link:hover{
-    color: --main-purple !important;
+    color: var(--main-purple) !important;
     text-decoration: none !important; 
 }
 .log-link{
@@ -122,12 +123,57 @@ footer {
     color: var(--main-purple);
     text-decoration: none;
 }
+.login-link-button{
+    background-color: var(--light-purple);
+    /* background: linear-gradient(25deg, var(--light-purple), var(--main-green)); */
+    /* background-color: var(--white-color); */
+    /* color: var(--white-color); */
+    color: var(--white-color);
+    border: linear-gradient(25deg, var(--light-purple), var(--main-green)) !important; 
+    border-radius: 8px; 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    text-decoration: none;
+
+}
+.login-link-button:hover{
+    background-color: var(--main-purple);
+    /* background: linear-gradient(25deg, var(--light-purple), var(--main-green)); */
+    color: var(--white-color);
+    border: none; 
+    border-radius: 8px; 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    text-decoration: none;
+}
+
+.register-link-button{
+    background-color: var(--main-green);
+    /* background: linear-gradient(25deg, var(--main-green), var(--light-purple)); */
+    color: var(--white-color);
+    border: none; 
+    border-radius: 8px; 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    text-decoration: none;
+}
+.register-link-button:hover{
+    background-color: var(--dark-green);
+    /* background: linear-gradient(25deg, var(--dark-green), var(--main-purple)); */
+    color: var(--white-color);
+    border: none; 
+    border-radius: 8px; 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    text-decoration: none;
+}
+
 
 .login-button{
     background-color:var(--light-purple); 
-    color:#FFFFFF;
-    border:none; 
-    border-radius:4px;
+    color: var(--white-color);
+    border: none; 
+    border-radius: 4px;
 }
 .login-button:hover{
     background-color:var(--main-purple)
@@ -148,6 +194,18 @@ footer {
     color: var(--black-color);
     background-color: var(--light-grey);
 }
+
+.register-button{
+    background-color:var(--main-green); 
+    color: var(--white-color);
+    border: none; 
+    border-radius: 4px;
+}
+.register-button:hover{
+    background-color:var(--dark-green)
+}
+
+
 /*register page*/
 .register-container {
     margin: auto;
@@ -159,6 +217,27 @@ footer {
     color: var(--black-color);
     background-color: var(--light-grey);
     /* background: linear-gradient(45deg, var(--black-color), var(--main-purple))*/
+}
+.logout-btn{
+    background-color:#e90667; 
+    color: var(--white-color);
+    border: none; 
+    border-radius: 8px; 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    text-decoration: none;
+}
+.submit-button{
+    background-color:var(--main-green); 
+    color: var(--white-color);
+    border: none; 
+    border-radius: 8px; 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    text-decoration: none;
+}
+.submit-button:hover{
+    background-color:var(--dark-green)
 }
 
 /* About Section */

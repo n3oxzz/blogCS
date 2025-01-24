@@ -9,10 +9,13 @@
     
     {% if session.get('user_id') == article.author_id %} 
     <form action="/posts/{{ article._id }}/delete" method="POST" style="display:inline;">
-      <button type="submit" class="btn btn-danger">Delete Article</button>
+      <button type="submit" class="login-link-button">Delete Article</button>
     </form>
     
-    <a href="/posts/{{ article._id }}/edit" class="btn btn-success">Edit Article</a>
+    <form action="/posts/{{ article._id }}/edit" method="GET" style="display:inline">
+    <button class="register-link-button">Edit Article</button>
+    </form>
+
     {% endif %}
     <p id="post-date"><b>Date: {{ article.date.date() }}</b></p>
   </div>
