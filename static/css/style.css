@@ -5,7 +5,7 @@
     --white-color: #ffffff;
 }
 body {
-    background-color: var(#d5d5d5); 
+    background-color: var(--light-grey); 
     color: var(--black-color);  
     font-family: 'Arial', sans-serif;
 }
@@ -48,8 +48,7 @@ footer {
 
 /* cards */
 .feature {
-    border-radius: 5px;
-    background-color: #f4f4f9;
+    background-color:var(--black-color);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
