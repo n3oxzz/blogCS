@@ -87,12 +87,10 @@ def index():
 @app.route('/about')
 def about():
     return render_template("about.html")
-
-
-@app.route('/create_account', methods = ["CREATE"])
-def create():
-    if request.method=="CREATE":
-        return render_template('create_account.html',)
+#/*@app.route('/create_account', methods = ["CREATE"])
+#def create():
+#   if request.method=="CREATE":
+ #       return render_template('create_account.html',)
     
 
 @app.route('/posts')
