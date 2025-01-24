@@ -2,9 +2,9 @@
 {% block title %} {{ article.title }} {% endblock %} 
 {% block body %}
 <div class="container">
+  <div class="article-container">
   <h1>{{ article.title }}</h1>
-
-  <div class="alert alert-info">
+    
     <p>{{ article.text }}</p>
     
     {% if session.get('user_id') == article.author_id %} 
