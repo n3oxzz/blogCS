@@ -46,6 +46,15 @@ footer {
     margin-top: 10px;
 }
 
+/* links */
+a {
+    color: var(--main-purple); 
+    text-decoration: none;
+}
+a:hover{
+    color: #5a05c6;
+    text-decoration: none; 
+}
 
 /* Navigation */
 .nav-link {
