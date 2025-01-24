@@ -220,7 +220,12 @@ def edit_article(id):
     except Exception as e:
         print(f"Error editing article: {e}")
         return f"An error occurred while editing the article: {e}", 500
-
+@app.route('/account')
+def account():
+    if "user_id" not in session:
+        return redirect('/login')
+    user = users_collection.find_one({"_id": ObjectId(session["user_id"])})
+    return render_template("account.html", user=user)
 
 if __name__ == "__main__":
     app.run()
