@@ -5,6 +5,7 @@
     --dark-grey: #cfcfda;
     --black-color: #000000;
     --white-color: #ffffff;
+    --main-green: #06e670
 }
 body {
     background-color: var(--light-grey); 
@@ -14,7 +15,8 @@ body {
 
 /* HEADER */
 header {
-    background: linear-gradient(25deg, var(--main-purple), #000000);
+    /* background: linear-gradient(25deg, var(--main-purple), #000000); */
+    background: linear-gradient(25deg, var(--main-purple), var(--main-green));
     color: var(--white-color);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -26,6 +28,7 @@ header {
 
 footer {
     background-color: var(--light-grey);
+    /* background-color: #b3b3b3; */
     color: var(--white-color);
     padding: 1.5rem 0;
     box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
@@ -35,6 +38,7 @@ footer {
 
 .footer-link a {
     color: var(--light-purple); 
+    /* color: var(--main-green); */
     text-decoration: none;
 }
 
@@ -75,7 +79,8 @@ footer {
 
 .nav-link:hover {
     color: var(--main-purple) !important; 
-    background-color: lightgray !important;
+    background-color: var(--light-grey) !important;
+    opacity: .99 !important;
 }
 
 .nav-link:not(:hover) {
