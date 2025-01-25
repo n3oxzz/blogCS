@@ -3,10 +3,13 @@
 {% block body %}
 <div class="container">
   <div class="article-container">
-  <h1>{{ article.title }}</h1>
+
+    <h1>{{ article.title }}</h1>
     
     <p>{{ article.text }}</p>
     
+    <p>{{article.username}}</p>
+    <p id="post-date"><b>Date: {{ article.date.date() }}</b></p>
     {% if session.get('user_id') == article.author_id %} 
     <form action="/posts/{{ article._id }}/delete" method="POST" style="display:inline;">
       <button type="submit" class="login-link-button">Delete Article</button>
@@ -17,7 +20,6 @@
     </form>
 
     {% endif %}
-    <p id="post-date"><b>Date: {{ article.date.date() }}</b></p>
   </div>
 </div>
 {% endblock %}
