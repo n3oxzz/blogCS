@@ -34,5 +34,17 @@ body %}
     <br/>
     <input type="submit" class="submit-button" value="Submit" />
   </form>
+  <script>
+    document.getElementById('articleForm').addEventListener('submit', function(event) {
+        var title = document.getElementById('title').value;
+        var intro = document.getElementById('intro').value;
+        var text = document.getElementById('text').value;
+    
+        if (!title || !intro || !text) {
+            alert('Please fill out all fields.');
+            event.preventDefault(); // Prevent form submission
+        }
+    });
+    </script>
 </div>
 {% endblock %}
