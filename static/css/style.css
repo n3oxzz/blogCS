@@ -227,6 +227,15 @@ footer {
     font-size: 16px; 
     text-decoration: none;
 }
+.logout-btn-small{
+    background-color:#e90667; 
+    color: var(--white-color);
+    border: none; 
+    border-radius: 8px; 
+    padding: 10px 20px; 
+    font-size: 12px; 
+    text-decoration: none;
+}
 .submit-button{
     background-color:var(--main-green); 
     color: var(--white-color);
@@ -274,3 +283,35 @@ footer {
     margin-bottom: 20px;
     box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
   }
+
+  .contact-btn {
+    background-color:var(--main-green); 
+    color: var(--white-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    margin-top: 20px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+.contact-btn:hover {
+    background-color: var(--dark-green);
+}
+
+.about-section {
+    padding: 25px;
+    margin: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.about-section h2 {
+    color: var(--main-purple); 
+    font-size: 1.87em;
+    margin-bottom: 10px;
+}
+.about-section p {
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: var(--black-color)
+}
+
