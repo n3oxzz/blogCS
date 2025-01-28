@@ -149,8 +149,7 @@ def create_article():
         intro = request.form["intro"].strip()
         text = request.form["text"].strip()
         
-        if not title or not intro or not text:
-            return "All fields must be filled out", 400
+
             
         author_username = session.get("username")
         
