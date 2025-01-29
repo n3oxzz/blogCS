@@ -39,6 +39,9 @@ def register():
     if request.method == "POST":
         username = request.form["username"].strip()
         password = request.form["password"].strip()
+
+        if(users_collection.find_one({"username": username})):
+            return "Username already exists", 400
     
         if not username or not password:
             return "Username and password are required", 400
