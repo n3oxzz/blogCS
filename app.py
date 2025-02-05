@@ -18,8 +18,8 @@ bcrypt = Bcrypt(app)
 
 app.secret_key = os.getenv("SECRET_KEY")
 
-
 uri = os.getenv('MONGO_DB_URI')
+
 client = MongoClient(uri, server_api=ServerApi('1'), tlsCAFile=certifi.where())
 db = client["blogDB"]
 articles_collection = db["Articles"]
