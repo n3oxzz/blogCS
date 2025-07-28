@@ -10,7 +10,6 @@ Articles Page
 
     {% if articles|length > 0 %}
       {% for elem in articles %}
-        <!-- Карточка для каждой статьи -->
         <div class="feature col">
           <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-purple bg-gradient fs-2 mb-3">
             <svg class="bi" width="1em" height="1em">
@@ -30,7 +29,6 @@ Articles Page
         </div>
       {% endfor %}
     {% else %}
-      <!-- Сообщение, если статьи отсутствуют -->
       <div class="col">
         <div class="alert alert-warning text-center">
           <h3>No articles yet</h3>

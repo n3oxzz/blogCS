@@ -6,9 +6,8 @@
 
     <h1>{{ article.title }}</h1>
     
-  
     <p>{{ article.text }}</p>
-    
+    {% if article.photo%} <img src="{{ article.photo }}" alt="Article Image" style="max-width: 200px; max-height: 200px;"> {% endif %}
     <p>{{article.username}}</p>
     <p id="post-date"><b>Date: {{ article.date.date() }}</b></p>
     {% if session.get('user_id') == article.author_id %} 

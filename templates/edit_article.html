@@ -2,7 +2,7 @@
 body %}
 <div class="container">
   <h1>Edit Article</h1>
-  <form method="post">
+  <form method="POST" enctype="multipart/form-data">
     <p>
       You are logged in as {{ session['username'] }}!
       <a style="color:#e90667" href="/logout">Logout</a>
@@ -36,8 +36,16 @@ body %}
       placeholder="Body"
       required
     >
-{{article.text}}</textarea
-    ><br />
+{{article.text}}</textarea>
+  <br/>
+  {% if article.photo %}
+    <div>
+      <img src="{{ article.photo }}" alt="Article Image" style="max-width: 300px;">
+    </div>
+  {% endif %}
+  <input type="file" name="photo" id="photo" ё>
+  <br/>
+    <br/>
     <input type="submit" class="btn btn-success" value="Update" />
   </form>
 </div>
