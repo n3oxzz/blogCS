@@ -10,10 +10,6 @@ from flask_bcrypt import Bcrypt
 from bson import ObjectId
 from supabase import create_client
 
-
-
-
-
 load_dotenv()
 
 sup_url = os.getenv("SUPABASE_URL")
