@@ -1,13 +1,13 @@
 # Blog CS Project
 
 ## Overview
-This is our final project for CS 11 — a fully functional **blog platform** where users can:
+This is our final project for CS 11 - a fully functional **blog platform** where users can:
 - Register & log in securely
 - Create, edit, and delete posts
 - Upload images to articles
 - View posts in a clean, readable format
 
-Everything is built using **Flask + MongoDB** — keeping it lightweight but powerful.
+Everything is built using **Flask + MongoDB** - keeping it lightweight but powerful.
 
 ---
 
@@ -46,8 +46,8 @@ flask run
 ---
 
 ## 💡 Why This Project
-We wanted to build something meaningful for our school community — a space where people can say what they think, share what they feel, and express themselves freely.
+We wanted to build something meaningful for our school community - a space where people can say what they think, share what they feel, and express themselves freely.
 
-We combined **VISST** and **space** — and that's how **VISSPACE** was born.
+We combined **VISST** and **space** - and that's how **VISSPACE** was born.
 
 
