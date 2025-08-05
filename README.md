@@ -45,7 +45,7 @@ flask run
 
 ---
 
-## 💡 Why This Project
+## Why This Project
 We wanted to build something meaningful for our school community - a space where people can say what they think, share what they feel, and express themselves freely.
 
 We combined **VISST** and **space** - and that's how **VISSPACE** was born.
