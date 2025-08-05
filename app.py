@@ -8,13 +8,13 @@ from dotenv import load_dotenv
 import os
 from flask_bcrypt import Bcrypt
 from bson import ObjectId
-from supabase import create_client
+# from supabase import create_client
 
 load_dotenv()
 
-sup_url = os.getenv("SUPABASE_URL")
-sup_key = os.getenv("SUPABASE_KEY")
-supabase = create_client(sup_url, sup_key)
+# sup_url = os.getenv("SUPABASE_URL")
+# sup_key = os.getenv("SUPABASE_KEY")
+# supabase = create_client(sup_url, sup_key)
 
 app = Flask(__name__)
 
