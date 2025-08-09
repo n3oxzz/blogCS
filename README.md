@@ -37,8 +37,8 @@ To connect:
 
 ## Running Locally
 ```bash
-git clone https://github.com/your/repo.git
-cd repo
+git clone https://github.com/n3oxzz/VISSPACE.git
+cd VISSPACE
 pip install -r requirements.txt
 flask run 
 ```
